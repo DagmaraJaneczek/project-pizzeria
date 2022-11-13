@@ -64,15 +64,20 @@
       console.log('new Product:', thisProduct);
     }
 
-    renderInMenu(){
+    renderInMenu() {
       const thisProduct = this;
 
-      /* generate HTML based on template - wygenerowac kod HTML pojedynczego produktu*/
+      /* [DONE] generate HTML based on template - wygenerowac kod HTML pojedynczego produktu*/
+      const generateHTML = templates.menuProduct(thisProduct.data);
 
-      /* create element using utils.createElementFromHTML - stworzyc element DOM na podstawie kodu produktu*/
+      /* [DONE] create element using utils.createElementFromHTML - stworzyc element DOM na podstawie kodu produktu*/
+      thisProduct.element = utils.createDOMFromHTML(generateHTML); //obiekt utils znajduje sie w functions.js
 
-      /*
+      /* find menu container - znajdz na stronie kontener menu */
+      const menuContainer = document.querySelector(select.containerOf.menu);
 
+      /* add element to menu - wstaw stworzony element DOM do znalezionego kontenera */
+      menuContainer.appendChild(thisProduct.element);
     }
   }
 
