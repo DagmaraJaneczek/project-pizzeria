@@ -60,7 +60,7 @@
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
-
+      thisProduct.initAccordion();
       console.log('new Product:', thisProduct);
     }
 
@@ -78,6 +78,30 @@
 
       /* add element to menu - wstaw stworzony element DOM do znalezionego kontenera */
       menuContainer.appendChild(thisProduct.element);
+    }
+
+    initAccordion() {
+      const thisProduct = this;
+
+      /* [DONE] find the clickable trigger (the element that should react to clicking) */
+      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+
+      /* [DONE] START: add event listener to clickable trigger on event click */
+      clickableTrigger.addEventListener('click', function(event) {
+
+        /* [DONE] prevent default action for event */
+        event.preventDefault();
+
+        /* [DONE] find active product (product that has active class) */
+        const activeProduct = document.querySelector(classNames.menuProduct.wrapperActive);
+
+        /* [DONE] if there is active product and it's not thisProduct.element, remove class active from it */
+        if(activeProduct != thisProduct.element && activeProduct != null){ //jesli activeProduct "nie jest (!=)" thisProduct i (&&) nie jest(!=) rowne null
+          activeProduct.classList.remove('active'); //to zabieramy klase active
+        }
+        /* [DONE] toggle active class on thisProduct.element */
+        thisProduct.element.classList.toggle('active'); //toggle -jak nie ma klasy active - to ja dodaje, a jak jest - to ja zabiera
+      });
     }
   }
 
