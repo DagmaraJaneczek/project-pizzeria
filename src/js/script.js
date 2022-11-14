@@ -91,6 +91,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
 
@@ -173,6 +174,16 @@
             if(option.default == true) {
               // reduce price variable
               price = price - option.price;
+            }
+          }
+          //find images that passt to category-option
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId); //(paramId + optionId) - nie dziala;
+          // check if you found the image
+          if(optionImage) {
+            if(formData[paramId] && formData[paramId].includes(optionId)) {
+              optionImage.classList.add('active'); //add class active
+            } else {
+              optionImage.classList.remove('active'); //remove classactive
             }
           }
         }
