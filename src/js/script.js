@@ -229,7 +229,11 @@
       if(thisWidget.value !== newValue && !isNaN(newValue)){
         thisWidget.value = newValue;
       }
+      if(newValue >= settings.amountWidget.defaultMin -1 && newValue <= settings.amountWidget.defaultMax +1) {
+        thisWidget.value = newValue;
+      }
       thisWidget.input.value = thisWidget.value;
+      thisWidget.announce();
     }
 
     initActions(){
@@ -246,6 +250,13 @@
         event.preventDefault();
         thisWidget.setValue(thisWidget.value + 1);
       });
+    }
+
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
     }
   }
 
