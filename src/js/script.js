@@ -232,12 +232,11 @@
       const newValue = parseInt(value); //pareseInt konwertuje string (np. '10') na liczbe (np. 10)
 
       /* TO DO: Add validation */
-      if(thisWidget.value !== newValue && !isNaN(newValue)) {
+      if(thisWidget.value !== newValue && !isNaN(newValue) //nie tworzyc drugiego if'a! wszystko zapisac w tej samej funkcji
+      && newValue >= settings.amountWidget.defaultMin -1 && newValue <= settings.amountWidget.defaultMax +1) {
         thisWidget.value = newValue;
       }
-      if(newValue >= settings.amountWidget.defaultMin -1 && newValue <= settings.amountWidget.defaultMax +1) {
-        thisWidget.value = newValue;
-      }
+
       thisWidget.input.value = thisWidget.value;
       thisWidget.announce();
     }
