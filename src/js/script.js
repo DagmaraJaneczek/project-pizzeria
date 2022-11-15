@@ -190,6 +190,8 @@
           }
         }
       }
+      // multiply price by amount
+      price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
@@ -198,6 +200,9 @@
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      thisProduct.amountWidgetElem.addEventListener('updated', function() {
+        thisProduct.processOrder();
+      });
     }
   }
 
@@ -207,6 +212,7 @@
 
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
       console.log('AmountWidget:', thisWidget);
       console.log('constructor arguments:', element);
     }
@@ -226,7 +232,7 @@
       const newValue = parseInt(value); //pareseInt konwertuje string (np. '10') na liczbe (np. 10)
 
       /* TO DO: Add validation */
-      if(thisWidget.value !== newValue && !isNaN(newValue)){
+      if(thisWidget.value !== newValue && !isNaN(newValue)) {
         thisWidget.value = newValue;
       }
       if(newValue >= settings.amountWidget.defaultMin -1 && newValue <= settings.amountWidget.defaultMax +1) {
