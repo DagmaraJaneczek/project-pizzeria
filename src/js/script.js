@@ -306,7 +306,7 @@
       thisCart.products = [];
 
       thisCart.getElements(element);
-      thisCart.initActions();
+      thisCart.initActions(); // 2.Wywolujemy metode
       console.log('new Cart', thisCart);
     }
 
@@ -316,22 +316,22 @@
       thisCart.dom = {};
 
       thisCart.dom.wrapper = element;
-      //Dodajemydefinicje wlasciwosci w metodzie getElements
+      // 1. Dodajemy definicje wlasciwosci w metodzie getElements
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
     }
-
+    // 2.Dodajemy metode initActions
     initActions() {
-      const thisCart = this;
-
+      const thisCart = this; // 3. Deklarujemy thisCart
+      // 3. Dodajemy EventListener
       thisCart.dom.toggleTrigger.addEventListener('click', function(event) {
 
         event.preventDefault();
 
         const activeCart = document.querySelector(classNames.cart.wrapperActive);
-        if(activeCart != thisCart.element && activeCart != null){
+        if(activeCart != thisCart.dom.wrapper && activeCart != null){
           activeCart.classList.remove('active');
         }
-        thisCart.dom.wrapper.toggle('active');
+        thisCart.dom.wrapper.toggle('active'); // 4.Handler ma toggle'owac na elemencie thisCart.dom.wrapper
       });
     }
   }
