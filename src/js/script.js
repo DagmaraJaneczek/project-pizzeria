@@ -228,8 +228,9 @@
       // multiply price by amount
       price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
-      thisProduct.priceSingle = price;
+      thisProduct.priceSingle = price; //add single price option
       thisProduct.priceElem.innerHTML = price;
+      thisProduct.price = price;
     }
 
     initAmountWidget() {
