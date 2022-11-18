@@ -228,6 +228,7 @@
       // multiply price by amount
       price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
+      thisProduct.priceSingle = price;
       thisProduct.priceElem.innerHTML = price;
     }
 
@@ -243,15 +244,51 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct);
+      app.cart.add(thisProduct.prepareCartProduct);
     }
 
     prepareCartProduct(){
       const thisProduct = this;
 
       const productSummary = {
-
+        id: thisProduct.id,
+        name: thisProduct.data.name,
+        amount: thisProduct.amountWidget.value,
+        priceSingle: thisProduct.priceSingle,
+        price: thisProduct.price,
+        param: thisProduct.prepareCartProductParams(),
       };
+      return productSummary;
+    }
+
+    prepareCartProductParams(){
+      const thisProduct = this;
+
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      const params = {};
+
+      // for very category (param)
+      for(let paramId in thisProduct.data.params) {
+        const param = thisProduct.data.params[paramId];
+
+        // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+        params[paramId] = {
+          label: param.label,
+          options: {}
+        };
+
+        // for every option in this category
+        for(let optionId in param.options) {
+          const option = param.options[optionId];
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+
+          if(optionSelected) {
+            param[paramId].options[optionId] = option.label; // option is selected!
+          }
+        }
+      }
+
+      return params;
     }
   }
 
@@ -317,9 +354,7 @@
   class Cart {
     constructor(element){
       const thisCart = this;
-
       thisCart.products = [];
-
       thisCart.getElements(element);
       thisCart.initActions(); // 2.Wywolujemy metode
       //console.log('new Cart', thisCart);
@@ -333,6 +368,7 @@
       thisCart.dom.wrapper = element;
       // 1. Dodajemy definicje wlasciwosci w metodzie getElements
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
     }
 
     // 2.Dodajemy metode initActions
@@ -345,9 +381,11 @@
     }
 
     add(menuProduct){
-      //const thisCart = this;
+      const thisCart = this;
 
-      console.log('adding product', menuProduct);
+      const generatedHTML = templates.cartProduct(menuProduct);
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      thisCart.dom.productList.appendChild(generatedDOM);
     }
   }
 
