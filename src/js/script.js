@@ -245,7 +245,7 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.prepareCartProduct()); //Dodajemy wszystko co zwraca prepareCartProduct! Zabraklo tylko nawiasow ()!
     }
 
     prepareCartProduct(){
