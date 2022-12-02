@@ -22,9 +22,9 @@ class BaseWidget {
     /* TO DO: Add validation */
     if(newValue !== thisWidget.correctValue && thisWidget.isValid(newValue)) {
       thisWidget.correctValue = newValue;
-      thisWidget.announce();
     }
 
+    thisWidget.announce();
     thisWidget.renderValue();
   }
 
