@@ -1,4 +1,5 @@
-import { templates, select} from './../settings.js';
+import { templates, select, settings} from './../settings.js';
+import utils from '../utils.js';
 import AmountWidget from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
@@ -13,6 +14,34 @@ class Booking{
     thisBooking.getData();
   }
 
+  getData(){
+    const thisBooking = this;
+
+    const params = {
+      booking: [
+        settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate),
+        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
+      ],
+      eventsCurrent: [
+
+      ],
+      eventsRepeat: [
+
+      ],
+    };
+
+    console.log('getData params', params);
+
+    const urls = {
+      booking:       settings.db.url + '/' + settings.db.event.booking
+                                     + '?' + params.booking.join('&'),
+      eventsCurrent: settings.db.url + '/' + settings.db.event
+                                     + '?' + params.eventsCurrent.join('&'),
+      eventsRepeat:  settings.db.url + '/' + settings.db.event
+                                     + '?' + params.eventsRepeat.join('&'),
+    };
+  }
+
   render(element){
     const thisBooking = this;
 
@@ -24,7 +53,7 @@ class Booking{
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
     thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
-    thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.wrapper.hourPicker.widgets);
+    thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
 
   }
 
