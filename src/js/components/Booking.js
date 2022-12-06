@@ -12,7 +12,7 @@ class Booking{
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
-    thisBooking.tableSelected;
+    thisBooking.initTables();
   }
 
   getData(){
@@ -197,9 +197,31 @@ class Booking{
     });
 
     thisBooking.dom.tablesBox.addEventListener('click', function(event){
-      thisBooking.initTables(event).target;
+      thisBooking.initTables(event);
     });
   }
+
+  initTables(clickedElement){
+    const thisBooking = this;
+
+    const tableId = clickedElement.getAttribute('data-table');
+    const bookedTable = clickedElement.classList.contains(classNames.booking.tableBooked);
+    const selectedTable = clickedElement.classList.contains(classNames.booking.tableSelected);
+
+    if(tableId){
+      if(bookedTable){
+        alert('This table is not available');
+      }else if (selectedTable){
+        clickedElement.classList.remove(classNames.booking.tableSelected);
+        thisBooking.selected = {};
+      }else if (!selectedTable){
+        thisBooking.removeSelection();
+        clickedElement.classList.add(classNames.booking.tableSelected);
+        thisBooking.selected = tableId;
+      }
+    }
+  }
+
 }
 
 
