@@ -3,6 +3,7 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', // CODE ADDED
     bookingWidget: '#template-booking-widget', // CODE ADDED
+    homePage:'#template-home', // CODE ADDED
   },
   containerOf: {
     menu: '#product-list',
