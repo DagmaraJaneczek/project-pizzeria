@@ -3,7 +3,6 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', // CODE ADDED
     bookingWidget: '#template-booking-widget', // CODE ADDED
-    homePage:'#template-home', // CODE ADDED
   },
   containerOf: {
     menu: '#product-list',
@@ -48,6 +47,8 @@ export const select = {
     starters: '[name= "starter"]',
     phone: '.order-confirmation [name="phone"]',
     address: '.order-confirmation [name= "address"]',
+    tableSelected: '.table.selected',
+    form: '.booking-form',
   },
 
   nav: {
@@ -86,6 +87,7 @@ export const classNames = {
   },
   // CODE ADDED END
   booking: {
+    table: 'table',
     loading: 'loading',
     tableBooked: 'booked',
     tableSelected: 'selected',
@@ -123,8 +125,8 @@ export const settings = {
     url: '//localhost:3131',
     products: 'products',
     orders: 'orders',
-    booking: 'booking',
-    event: 'event',
+    bookings: 'bookings',
+    events: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
