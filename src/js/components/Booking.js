@@ -40,7 +40,7 @@ class Booking{
     //console.log('getData params', params);
 
     const urls = {
-      bookings:       settings.db.url + '/' + settings.db.events.bookings
+      bookings:       settings.db.url + '/' + settings.db.bookings
                                      + '?' + params.booking.join('&'),
       eventsCurrent: settings.db.url + '/' + settings.db.events
                                      + '?' + params.eventsCurrent.join('&'),
@@ -149,7 +149,7 @@ class Booking{
         &&
         thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
       ){
-        table.classList.add(classNames.booking.tableBookde);
+        table.classList.add(classNames.booking.tableBooked); //Zminana literowki powoduje blad
       } else{
         table.classList.remove(classNames.booking.tableBooked);
       }
@@ -236,11 +236,11 @@ class Booking{
       clickedElement.classList.add(classNames.booking.tableSelected);
       thisBooking.selected = tableId;
     }
+
   }
 
-
   //Metoda podobna do sendOrder w klasie Cart
-  sendBooking() {
+  sendBooking(){
     const thisBooking = this;
 
     const url = settings.db.url + '/' + settings.db.bookings;
@@ -256,7 +256,7 @@ class Booking{
       address: thisBooking.dom.address.value,
     };
 
-    for(let starter of thisBooking.starters) {
+    for(let starter of thisBooking.dom.starters) {
       if(starter.checked){
         payload.starters.push(starter.value);
       }
@@ -279,6 +279,8 @@ class Booking{
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
       });
   }
+
 }
+
 
 export default Booking;
