@@ -67,6 +67,7 @@
     }
   }
 
+
 /* Carousel */
 
 .carousel-wrapper {
@@ -117,6 +118,12 @@
     border-radius: 6px;
 }
 
+.gallery-box-images img:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 .gallery-box-images i {
     display: none;
 }
@@ -145,4 +152,5 @@
     color: #d63031;
     margin-left: 10px;
     padding-bottom: 20px;
+    font-size: 15px;
 }
