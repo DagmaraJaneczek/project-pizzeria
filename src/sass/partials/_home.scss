@@ -97,3 +97,52 @@
         border-radius: 6px;
     }
 }
+
+/* Gallery */
+
+.gallery-box {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.gallery-box-images {
+    display: inline;
+    position: relative;
+}
+
+.gallery-box-images img {
+    width: 30%;
+    height: 200px;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.gallery-box-images i {
+    display: none;
+}
+
+.gallery-box-images:hover i {
+    color: #fff;
+    position: absolute;
+    right: 45%;
+    bottom: 500%;
+    font-size: 40px;
+    display: inline;
+    cursor: pointer;
+}
+
+.gallery-box-images i:hover {
+    color: #d63031;
+    position: absolute;
+    right: 45%;
+    bottom: 500%;
+    font-size: 40px;
+    display: inline;
+    cursor: pointer;
+}
+
+.gallery-link a {
+    color: #d63031;
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
