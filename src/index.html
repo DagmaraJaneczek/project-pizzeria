@@ -7,6 +7,7 @@
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link href="/src/vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -66,18 +67,7 @@
 
   <div id="pages">
     <section id="home">
-      <div class="home-wrapper container">
-        <div class="main">
-          <div class="main-links">
-            <a href="order" class="link-btn">
-              <div class="link-btn-wrapper">
-                <p class="main-title">order online</p>
-                <img src="/images/home/pizza-1.jpg" alt="pizza">
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+      <div class="home-wrapper container"></div>
     </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
@@ -87,6 +77,29 @@
       </div>
     </section>
   </div>
+
+  <script id="template-home" type="text/x-handlebars-template">
+    <div class="wrapper">
+      <div class="wrapper__links">
+        <a href="#order" class="link-btn">
+          <div class="link-btn__wrapper">
+            <p class="wrapper__title">order online</p>
+            <img src="images/home/pizza-1.jpg" alt="pizza" />
+          </div>
+        </a>
+        <a href="#booking" class="link-btn">
+          <div class="link-btn__wrapper">
+            <p class="wrapper__title">book a table</p>
+            <img src="images/home/pizza-2.jpg" alt="table full of food" />
+          </div>
+        </a>
+      </div>
+
+      <div class="wrapper__info">
+        <p class="wrapper__title">opening hours:</p>
+        <p class="wrapper__subtitle">tue-sun, 12pm - 12am</p>
+      </div>
+  </script>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
@@ -262,6 +275,7 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="/vendor/range-slider.min.js"></script>
   <script src="js/app.js" type="module"></script>
