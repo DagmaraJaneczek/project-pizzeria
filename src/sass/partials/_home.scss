@@ -1,156 +1,156 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 70px 0;
+  font-family: $font-header;
+  font-weight: $font-normal;
+  letter-spacing: 0.7px;
+  font-size: ($base-size * 2);
+  color: $color-light;
+  text-transform: uppercase;
+
+  &__links {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__info {
+    background-color: $color-main;
+    height: 140px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 70px 0;
-    font-family: $font-header;
-    font-weight: $font-normal;
-    letter-spacing: 0.7px;
-    font-size: ($base-size * 2);
-    color: $color-light;
-    text-transform: uppercase;
-
-    &__links {
-      display: flex;
-      gap: 10px;
-    }
-
-    &__info {
-      background-color: $color-main;
-      height: 140px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: $radius;
-    }
-
-    &__info p {
-      margin: 0;
-    }
-
-    &__subtitle {
-      font-family: $font-text;
-      font-weight: $font-light;
-      font-size: ($base-size * 1.2);
-    }
+    justify-content: center;
+    align-items: center;
+    border-radius: $radius;
   }
 
-  .link-btn {
-    width: 50%;
-    color: $color-light;
-
-    &__wrapper {
-      max-width: 100%;
-      height: 140px;
-      position: relative;
-    }
-
-    &__wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: $radius;
-    }
-
-    &__wrapper:hover p {
-      transform: translate(-50%, -80%);
-    }
-
-    &__wrapper p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      margin: 0;
-      transition: transform 0.3s ease-out;
-    }
+  &__info p {
+    margin: 0;
   }
+
+  &__subtitle {
+    font-family: $font-text;
+    font-weight: $font-light;
+    font-size: ($base-size * 1.2);
+  }
+}
+
+.link-btn {
+  width: 50%;
+  color: $color-light;
+
+  &__wrapper {
+    max-width: 100%;
+    height: 140px;
+    position: relative;
+  }
+
+  &__wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+  }
+
+  &__wrapper:hover p {
+    transform: translate(-50%, -80%);
+  }
+
+  &__wrapper p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    transition: transform 0.3s ease-out;
+  }
+}
 
 
 /* Carousel */
 
 .carousel-wrapper {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .carousel-box{
+  width: 100%;
+  height: 250px;
+  border-radius: 4px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+
+  &__image {
+    flex: 30%;
+  }
+
+  &__info {
+    flex: 60%;
+  }
+
+  &__image img {
     width: 100%;
-    height: 250px;
-    border-radius: 4px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-
-    &__image {
-        flex: 30%;
-    }
-
-    &__info {
-        flex: 60%;
-    }
-
-    &__image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 6px;
-    }
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
 }
 
 /* Gallery */
 
 .gallery-box {
-    margin-top: 100px;
-    margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .gallery-box-images {
-    display: inline;
-    position: relative;
+  display: inline;
+  position: relative;
 }
 
 .gallery-box-images img {
-    width: 30%;
-    height: 200px;
-    margin: 10px;
-    border-radius: 6px;
+  width: 30%;
+  height: 200px;
+  margin: 10px;
+  border-radius: 6px;
 }
 
 .gallery-box-images img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transition: all 0.3s;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .gallery-box-images i {
-    display: none;
+  display: none;
 }
 
 .gallery-box-images:hover i {
-    color: #fff;
-    position: absolute;
-    right: 45%;
-    bottom: 500%;
-    font-size: 40px;
-    display: inline;
-    cursor: pointer;
+  color: #fff;
+  position: absolute;
+  right: 45%;
+  bottom: 500%;
+  font-size: 40px;
+  display: inline;
+  cursor: pointer;
 }
 
 .gallery-box-images i:hover {
-    color: #d63031;
-    position: absolute;
-    right: 45%;
-    bottom: 500%;
-    font-size: 40px;
-    display: inline;
-    cursor: pointer;
+  color: #d63031;
+  position: absolute;
+  right: 45%;
+  bottom: 500%;
+  font-size: 40px;
+  display: inline;
+  cursor: pointer;
 }
 
 .gallery-link a {
-    color: #d63031;
-    margin-left: 10px;
-    padding-bottom: 20px;
-    font-size: 15px;
+  color: #d63031;
+  margin-left: 10px;
+  padding-bottom: 20px;
+  font-size: 15px;
 }
