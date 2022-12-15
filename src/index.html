@@ -79,25 +79,26 @@
   </div>
 
   <script id="template-home" type="text/x-handlebars-template">
-    <div class="wrapper">
-      <div class="wrapper__links">
-        <a href="#order" class="link-btn">
-          <div class="link-btn__wrapper">
-            <p class="wrapper__title">order online</p>
-            <img src="images/home/pizza-1.jpg" alt="pizza" />
+    <div class="home-header">
+      <div class="row-wrapper">
+        <div class="box">
+          <img src="./images/home/pizza-1.jpg">
+          <div class="order-book">
+            <a href="#order" class="home-btn"><h3>ORDER ONLINE</h3></a>
+            <p>Delicious food delivered to your door</p>
           </div>
-        </a>
-        <a href="#booking" class="link-btn">
-          <div class="link-btn__wrapper">
-            <p class="wrapper__title">book a table</p>
-            <img src="images/home/pizza-2.jpg" alt="table full of food" />
+        </div>
+        <div class="box">
+          <img src="./images/home/pizza-2.jpg">
+          <div class="order-book">
+            <a href="#booking" class="home-btn"><h3>BOOK A TABLE</h3></a>
+            <p>Enjoy your time in our restaurant</p>
           </div>
-        </a>
+        </div>
       </div>
-
-      <div class="wrapper__info">
-        <p class="wrapper__title">opening hours:</p>
-        <p class="wrapper__subtitle">tue-sun, 12pm - 12am</p>
+      <div class="bottom-box">
+        <h3>OPENING HOURS:</h3>
+        <h4 class="open-time">TUE-SUN, 12 PM - 12 AM</h4>
       </div>
     </div>
     <!--Carousel-->
@@ -156,47 +157,63 @@
     </div>
 
     <!--Gallery-->
-    <div class="gallery-wrapper">
 
-      <div class="gallery-box">
-        <div class="gallery-box-images">
-            <img src="images/home/pizza-4.jpg">
+    <div class="gallery">
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
             <i class="fas fa-heart"></i>
             <i class="fas fa-share-alt"></i>
-        </div>
-
-        <div class="gallery-box-images">
-          <img src="images/home/pizza-5.jpg">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-share-alt"></i>
-        </div>
-
-        <div class="gallery-box-images">
-          <img src="images/home/pizza-6.jpg">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-share-alt"></i>
-        </div>
-
-        <div class="gallery-box-images">
-          <img src="images/home/pizza-7.jpg">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-share-alt"></i>
-        </div>
-
-        <div class="gallery-box-images">
-          <img src="images/home/pizza-8.jpg">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-share-alt"></i>
-        </div>
-
-        <div class="gallery-box-images">
-          <img src="images/home/pizza-9.jpg">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-share-alt"></i>
           </div>
         </div>
+        <img src="images/home/pizza-4.jpg" alt="starters" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+        <img src="images/home/pizza-5.jpg" alt="vegetable dish" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+        <img src="images/home/pizza-6.jpg" alt="pizza" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+        <img src="images/home/pizza-7.jpg" alt="open sign" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+        <img src="images/home/pizza-8.jpg" alt="pizza dough" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-share-alt"></i>
+          </div>
+        </div>
+        <img src="images/home/pizza-9.jpg" alt="shop window" />
+      </div>
     </div>
-
     <footer class="gallery-link">
       <a href="#">View more on Instagram</a>
     </footer>
